@@ -134,7 +134,8 @@
     <script type="text/x-handlebars-template" id="post-template">
       <div class="blog-post">
         <h2 class="blog-post-title">{{ post.fields.title }}</h2>
-        <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+        <p class="blog-post-meta">December 23, 2013
+          {{#if post.fields.author.fields.name }}by <a href="#">{{ post.fields.author.fields.name }}</a>{{/if}}</p>
         {{ post.fields.body }}
       </div>
     </script>
@@ -150,7 +151,6 @@
 
       const SPACE_ID = 'gsrrrgrh0o9x'
       const ACCESS_TOKEN = '326b3cb54cd2b423b6988688f3ac8ea63b198673b03b9d3ff66aa4f5c7993929'
-      const CONTENT_TYPE = 'post'
       var client = contentful.createClient({
         accessToken: ACCESS_TOKEN,
         space: SPACE_ID
@@ -159,7 +159,7 @@
       var postTemplate = Handlebars.compile(document.getElementById('post-template').innerHTML)
       function fetchPosts() {
         return client.getEntries({
-          content_type: CONTENT_TYPE
+          content_type: 'post'
         })
         .then(entries => entries.items)
         .catch(error => {
