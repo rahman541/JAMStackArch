@@ -5,4 +5,4 @@ JAMStack stand for Javascrip, API, & Markup. Not belong to specific technology b
 
 [https://distracted-lumiere-942c3c.netlify.com/](https://distracted-lumiere-942c3c.netlify.com/)
 
-[Read More Here](https://jamstack.org/)
+[About Architecture](https://jamstack.org/)
